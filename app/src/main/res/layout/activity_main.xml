@@ -14,17 +14,23 @@
         android:padding="8dp">
 
         <TextView
+            android:id="@+id/informational_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Hello World!" />
+            android:text="@string/tv_informational_text"
+            android:layout_marginBottom="16dp"/>
         <TextView
+            android:id="@+id/quantity_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Hello World!" />
+            android:text="@string/tv_amount"
+            android:layout_marginBottom="16dp"
+            android:textColor="@android:color/black"/>
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Some content"/>
+            android:text="Some content"
+            android:layout_marginBottom="16dp"/>
 
     </LinearLayout>
 

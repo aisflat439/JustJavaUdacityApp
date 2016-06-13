@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Just Java (Udacity  Project)</string>
+    <string name="tv_informational_text">Quantity</string>
+    <string name="tv_amount">0</string>
+
+    <string name="bv_order">Order</string>
 </resources>
