@@ -34,4 +34,22 @@ public class MainActivity extends AppCompatActivity {
                 R.id.price_text_view);
         priceTextView.setText(NumberFormat.getCurrencyInstance().format(number));
     }
+
+    public void increment(View view) {
+        int quantity = 0;
+        TextView quantityTextView = (TextView) findViewById(
+                R.id.quantity_text_view);
+        quantity = Integer.parseInt(quantityTextView.getText().toString());
+        quantity++;
+        display(quantity);
+    }
+
+    public void decrement(View view) {
+        int quantity = 0;
+        TextView quantityTextView = (TextView) findViewById(
+                R.id.quantity_text_view);
+        quantity = Integer.parseInt(quantityTextView.getText().toString());
+        quantity--;
+        display(quantity);
+    }
 }
