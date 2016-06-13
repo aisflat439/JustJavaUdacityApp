@@ -21,29 +21,39 @@
             android:layout_marginBottom="16dp"
             android:layout_marginTop="8dp"
             android:textAllCaps="true"/>
-        <Button
-            android:id="@+id/increment_button"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_marginBottom="16dp"
-            android:text="@string/bv_increment"
-            android:onClick="increment"/>
 
-        <TextView
-            android:id="@+id/quantity_text_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/tv_amount"
-            android:layout_marginBottom="16dp"
-            android:textColor="@android:color/black"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-        <Button
-            android:id="@+id/decrement_button"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:text="@string/bv_decrement"
-            android:layout_marginBottom="16dp"
-            android:onClick="decrement"/>
+            <Button
+                android:id="@+id/increment_button"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginBottom="16dp"
+                android:text="@string/bv_increment"
+                android:onClick="increment"/>
+
+            <TextView
+                android:id="@+id/quantity_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tv_amount"
+                android:layout_marginBottom="16dp"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:textColor="@android:color/black"/>
+
+            <Button
+                android:id="@+id/decrement_button"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:text="@string/bv_decrement"
+                android:layout_marginBottom="16dp"
+                android:onClick="decrement"/>
+
+        </LinearLayout>
+
 
         <TextView
             android:id="@+id/cost_text_view_text_view"
