@@ -4,6 +4,7 @@ import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,17 +25,23 @@ public class MainActivity extends AppCompatActivity {
 
     public void submitOrder(View v){
         double total = calculatePrice();
-        createOrderSummary(total);
-        displayMessage(createOrderSummary(total));
+//        createOrderSummary(wantsWhippedCream(), total);
+        displayMessage(createOrderSummary(wantsWhippedCream(), total));
         displayToastAndUpdate();
     }
 
-    private String createOrderSummary(double t){
+    private String createOrderSummary(boolean wantsWhippedCream, double t){
         String orderSummaryMessage = "Name: Kaptain Kunal";
         orderSummaryMessage += "\nQuantity: " + quantity;
+        orderSummaryMessage += "\nWants whipped cream: " + wantsWhippedCream;
         orderSummaryMessage += "\nTotal: " + NumberFormat.getCurrencyInstance().format(t);
         orderSummaryMessage += "\nThank You!";
         return orderSummaryMessage;
+    }
+
+    private boolean wantsWhippedCream(){
+        CheckBox whippedCreamCheckBox = (CheckBox) findViewById(R.id.whipped_cream_checkbox);
+        return whippedCreamCheckBox.isChecked();
     }
 
     private void display(int number){

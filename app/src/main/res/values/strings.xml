@@ -4,7 +4,9 @@
     <string name="tv_amount">0</string>
     <string name="tv_order_summary">Order Summary</string>
     <string name="tv_price_amount">0</string>
+    <string name="tv_toppings_text_header">Toppings</string>
 
+    <string name="cb_informational_text">Whipped Cream</string>
     <string name="bv_increment">+</string>
     <string name="bv_decrement">-</string>
     <string name="bv_order">Order</string>

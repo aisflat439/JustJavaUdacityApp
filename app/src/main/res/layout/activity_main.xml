@@ -14,12 +14,27 @@
         android:padding="8dp">
 
         <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/tv_toppings_text_header"
+            android:textAllCaps="true"
+            android:layout_marginBottom="16dp"/>
+
+            <CheckBox
+                android:id="@+id/whipped_cream_checkbox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/cb_informational_text"
+                android:paddingLeft="24dp"
+                android:layout_marginBottom="16dp" />
+
+        <TextView
             android:id="@+id/informational_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/tv_informational_text"
             android:layout_marginBottom="16dp"
-            android:layout_marginTop="8dp"
             android:textAllCaps="true"/>
 
         <LinearLayout
