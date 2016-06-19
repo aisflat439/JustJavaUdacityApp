@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         double total = calculatePrice();
         createOrderSummary(total);
         displayMessage(createOrderSummary(total));
-        displayToastandUpdate();
+        displayToastAndUpdate();
     }
 
     private String createOrderSummary(double t){
@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         orderSummaryTextView.setText(message);
     }
 
-    private void displayToastandUpdate(){
+    private void displayToastAndUpdate(){
         Toast.makeText(this, "You have had " + numOrders + " orders.", Toast.LENGTH_SHORT).show();
         numOrders++;
     }
