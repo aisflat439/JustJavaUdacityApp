@@ -1,18 +1,20 @@
 package com.example.devindesktop.justjavaudacityproject;
 
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.NumberFormat;
 
-import static android.R.attr.value;
 
 public class MainActivity extends AppCompatActivity {
 
     int quantity = 0;
-    double price = 2.00;
+    double price = 5.00;
+    int numOrders = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,10 +23,18 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void submitOrder(View v){
-        double value;
-        value = quantity * price;
-        String priceMessage = "Total is " + NumberFormat.getCurrencyInstance().format(value) + "\nThank you!";
-        displayMessage(priceMessage);
+        double total = calculatePrice();
+        createOrderSummary(total);
+        displayMessage(createOrderSummary(total));
+        displayToastandUpdate();
+    }
+
+    private String createOrderSummary(double t){
+        String orderSummaryMessage = "Name: Kaptain Kunal";
+        orderSummaryMessage += "\nQuantity: " + quantity;
+        orderSummaryMessage += "\nTotal: " + NumberFormat.getCurrencyInstance().format(t);
+        orderSummaryMessage += "\nThank You!";
+        return orderSummaryMessage;
     }
 
     private void display(int number){
@@ -34,8 +44,20 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void displayMessage(String message){
-        TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
-        priceTextView.setText(message);
+        TextView orderSummaryTextView = (TextView) findViewById(R.id.order_summary_text_view);
+        orderSummaryTextView.setTextSize(20);
+        orderSummaryTextView.setTextColor(Color.parseColor("#303F9F"));
+        orderSummaryTextView.setText(message);
+    }
+
+    private void displayToastandUpdate(){
+        Toast.makeText(this, "You have had " + numOrders + " orders.", Toast.LENGTH_SHORT).show();
+        numOrders++;
+    }
+
+    private double calculatePrice() {
+        double totalPrice = quantity * price;
+        return totalPrice;
     }
 
     public void increment(View view) {

@@ -2,7 +2,7 @@
     <string name="app_name">Just Java (Udacity  Project)</string>
     <string name="tv_informational_text">Quantity</string>
     <string name="tv_amount">0</string>
-    <string name="tv_cost_text">Cost</string>
+    <string name="tv_order_summary">Order Summary</string>
     <string name="tv_price_amount">0</string>
 
     <string name="bv_increment">+</string>
