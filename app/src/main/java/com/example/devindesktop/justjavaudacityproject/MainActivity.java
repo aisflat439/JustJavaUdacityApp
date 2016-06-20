@@ -1,6 +1,8 @@
 package com.example.devindesktop.justjavaudacityproject;
 
+import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -24,7 +26,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void submitOrder(View v){
-        displayMessage(createOrderSummary(getUserName(), wantsWhippedCream(), wantsChocolate()));
+        String message = createOrderSummary(getUserName(), wantsWhippedCream(), wantsChocolate());
+        displayMessage(message);
+        Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
+        emailIntent.setData(Uri.parse("mailto:"));
+        emailIntent.putExtra(Intent.EXTRA_EMAIL, "devinfitzsimons@yahoo.com");
+        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Your Coffee Order");
+        emailIntent.putExtra(Intent.EXTRA_STREAM, message);
+        if(emailIntent.resolveActivity(getPackageManager()) != null){
+            startActivity(emailIntent);
+        }
     }
 
     private String createOrderSummary(String userName, boolean wantsWhippedCream, boolean wantsChocolate){
