@@ -31,13 +31,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private String createOrderSummary(boolean wantsWhippedCream, boolean wantsChocolate, double t){
-        String orderSummaryMessage = "Name: Kaptain Kunal";
-        orderSummaryMessage += "\nQuantity: " + quantity;
-        orderSummaryMessage += "\nWants whipped cream: " + wantsWhippedCream;
-        orderSummaryMessage += "\nWants chocolate: " + wantsChocolate;
-        orderSummaryMessage += "\nTotal: " + NumberFormat.getCurrencyInstance().format(t);
-        orderSummaryMessage += "\nThank You!";
-        return orderSummaryMessage;
+        StringBuilder sb = new StringBuilder();
+        sb.append("Name: Kaptain Kunal");
+        sb.append("\nQuantity: " + quantity);
+        sb.append("\nWants whipped cream: " + wantsWhippedCream);
+        sb.append("\nWants chocolate: " + wantsChocolate);
+        sb.append("\nTotal: " + NumberFormat.getCurrencyInstance().format(t));
+        sb.append("\nThank You!");
+        return sb.toString();
     }
 
     private boolean wantsWhippedCream(){
