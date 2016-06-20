@@ -27,12 +27,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void submitOrder(View v){
         String message = createOrderSummary(getUserName(), wantsWhippedCream(), wantsChocolate());
-        displayMessage(message);
+//        displayMessage(message);
         Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
         emailIntent.setData(Uri.parse("mailto:"));
-        emailIntent.putExtra(Intent.EXTRA_EMAIL, "devinfitzsimons@yahoo.com");
         emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Your Coffee Order");
-        emailIntent.putExtra(Intent.EXTRA_STREAM, message);
+        emailIntent.putExtra(Intent.EXTRA_TEXT, message);
         if(emailIntent.resolveActivity(getPackageManager()) != null){
             startActivity(emailIntent);
         }
@@ -70,13 +69,6 @@ public class MainActivity extends AppCompatActivity {
         TextView quantityTextView = (TextView) findViewById(
                 R.id.quantity_text_view);
         quantityTextView.setText("" + number);
-    }
-
-    private void displayMessage(String message){
-        TextView orderSummaryTextView = (TextView) findViewById(R.id.order_summary_text_view);
-        orderSummaryTextView.setTextSize(20);
-        orderSummaryTextView.setTextColor(Color.parseColor("#303F9F"));
-        orderSummaryTextView.setText(message);
     }
 
     private double calculatePrice(int q, boolean wantsChocolate, boolean wantsWhip) {

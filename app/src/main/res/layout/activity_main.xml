@@ -86,23 +86,6 @@
 
         </LinearLayout>
 
-
-        <TextView
-            android:id="@+id/order_summary_label_text_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/tv_order_summary"
-            android:layout_marginBottom="16dp"
-            android:textAllCaps="true"/>
-
-        <TextView
-            android:id="@+id/order_summary_text_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/tv_price_amount"
-            android:layout_marginBottom="16dp"
-            android:textColor="@android:color/black"/>
-
         <Button
             android:id="@+id/order_button"
             android:layout_width="wrap_content"
