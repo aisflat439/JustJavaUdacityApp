@@ -6,6 +6,7 @@
     <string name="tv_price_amount">0</string>
     <string name="tv_toppings_text_header">Toppings</string>
 
+    <string name="cb_chocolate_informational_text">Chocolate</string>
     <string name="cb_informational_text">Whipped Cream</string>
     <string name="bv_increment">+</string>
     <string name="bv_decrement">-</string>
