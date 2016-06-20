@@ -13,6 +13,15 @@
         android:orientation="vertical"
         android:padding="8dp">
 
+        <EditText
+            android:id="@+id/et_get_full_name"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/et_enter_name"
+            android:inputType="textCapWords"
+            android:layout_marginBottom="16dp"
+            />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

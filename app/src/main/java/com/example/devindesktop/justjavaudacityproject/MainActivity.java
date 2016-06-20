@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -13,7 +14,7 @@ import java.text.NumberFormat;
 
 public class MainActivity extends AppCompatActivity {
 
-    int quantity = 0;
+    int quantity = 2;
     double price = 5.00;
     int numOrders = 0;
 
@@ -24,21 +25,27 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void submitOrder(View v){
-        double total = calculatePrice();
 //        createOrderSummary(wantsWhippedCream(), total);
-        displayMessage(createOrderSummary(wantsWhippedCream(), wantsChocolate(), total));
+        displayMessage(createOrderSummary(getUserName(), wantsWhippedCream(), wantsChocolate()));
         displayToastAndUpdate();
     }
 
-    private String createOrderSummary(boolean wantsWhippedCream, boolean wantsChocolate, double t){
+    private String createOrderSummary(String userName, boolean wantsWhippedCream, boolean wantsChocolate){
         StringBuilder sb = new StringBuilder();
-        sb.append("Name: Kaptain Kunal");
+        sb.append("Name: " + userName);
         sb.append("\nQuantity: " + quantity);
         sb.append("\nWants whipped cream: " + wantsWhippedCream);
         sb.append("\nWants chocolate: " + wantsChocolate);
-        sb.append("\nTotal: " + NumberFormat.getCurrencyInstance().format(t));
-        sb.append("\nThank You!");
+        sb.append("\nTotal: " + NumberFormat.getCurrencyInstance().format(calculatePrice(quantity, wantsChocolate, wantsWhippedCream)));
+        sb.append("\nThank You!!");
         return sb.toString();
+    }
+
+    private String getUserName(){
+        String userName = "";
+        EditText et = (EditText) findViewById(R.id.et_get_full_name);
+        userName = et.getText().toString();
+        return userName;
     }
 
     private boolean wantsWhippedCream(){
@@ -65,21 +72,35 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void displayToastAndUpdate(){
-        Toast.makeText(this, "You have had " + numOrders + " orders.", Toast.LENGTH_SHORT).show();
         numOrders++;
+        Toast.makeText(this, "You have had " + numOrders + " orders.", Toast.LENGTH_SHORT).show();
     }
 
-    private double calculatePrice() {
-        double totalPrice = quantity * price;
-        return totalPrice;
+    private double calculatePrice(int q, boolean wantsChocolate, boolean wantsWhip) {
+        if (wantsChocolate){
+            price += 2;
+        }
+        if (wantsWhip){
+            price += 1;
+        }
+
+        return q * price;
     }
 
     public void increment(View view) {
+        if (quantity >= 100){
+            Toast.makeText(this, "100 is the maximum available number of coffees to order.", Toast.LENGTH_SHORT).show();
+            return;
+        }
         quantity++;
         display(quantity);
     }
 
     public void decrement(View view) {
+        if (quantity == 1){
+            Toast.makeText(this, "You cannot sell negative coffee.", Toast.LENGTH_SHORT).show();
+            return;
+        }
         quantity--;
         display(quantity);
     }
