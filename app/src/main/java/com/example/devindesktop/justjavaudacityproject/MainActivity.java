@@ -16,7 +16,6 @@ public class MainActivity extends AppCompatActivity {
 
     int quantity = 2;
     double price = 5.00;
-    int numOrders = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,9 +24,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void submitOrder(View v){
-//        createOrderSummary(wantsWhippedCream(), total);
         displayMessage(createOrderSummary(getUserName(), wantsWhippedCream(), wantsChocolate()));
-        displayToastAndUpdate();
     }
 
     private String createOrderSummary(String userName, boolean wantsWhippedCream, boolean wantsChocolate){
@@ -69,11 +66,6 @@ public class MainActivity extends AppCompatActivity {
         orderSummaryTextView.setTextSize(20);
         orderSummaryTextView.setTextColor(Color.parseColor("#303F9F"));
         orderSummaryTextView.setText(message);
-    }
-
-    private void displayToastAndUpdate(){
-        numOrders++;
-        Toast.makeText(this, "You have had " + numOrders + " orders.", Toast.LENGTH_SHORT).show();
     }
 
     private double calculatePrice(int q, boolean wantsChocolate, boolean wantsWhip) {
