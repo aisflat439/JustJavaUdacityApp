@@ -23,11 +23,9 @@
             />
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/HeaderStyle"
             android:layout_marginTop="8dp"
             android:text="@string/tv_toppings_text_header"
-            android:textAllCaps="true"
             android:layout_marginBottom="16dp"/>
 
             <CheckBox
@@ -48,11 +46,9 @@
 
         <TextView
             android:id="@+id/informational_text_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/HeaderStyle"
             android:text="@string/tv_informational_text"
-            android:layout_marginBottom="16dp"
-            android:textAllCaps="true"/>
+            android:layout_marginBottom="16dp"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -60,10 +56,8 @@
 
             <Button
                 android:id="@+id/decrement_button"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
+                style="@style/PlusMinusButtons"
                 android:text="@string/bv_decrement"
-                android:layout_marginBottom="16dp"
                 android:onClick="decrement"/>
 
             <TextView
@@ -78,9 +72,7 @@
 
             <Button
                 android:id="@+id/increment_button"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:layout_marginBottom="16dp"
+                style="@style/PlusMinusButtons"
                 android:text="@string/bv_increment"
                 android:onClick="increment"/>
 
